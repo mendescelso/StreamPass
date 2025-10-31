@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assinatura TV Premium 4K - O Melhor Conteúdo Ilimitado</title>
+    <title>Assinatura StreamTV 4K - O Melhor Conteúdo Ilimitado</title>
     <style>
         /* Variáveis de Cores - ESQUEMA CLARO GARANTIDO */
         :root {
-            --dark-background: #FFFFFF; /* AGORA É BRANCO */
-            --light-text: #333333;      /* AGORA É PRETO/ESCURO */
-            --highlight-color: #e50914; /* Vermelho de Destaque */
-            --card-background: #F0F0F0; /* CARD CINZA CLARO */
+            --dark-background: #FFFFFF;
+            --light-text: #333333;
+            --highlight-color: #e50914;
+            --card-background: #F0F0F0;
         }
 
         /* Estilos Gerais */
@@ -22,11 +22,13 @@
             color: var(--light-text);
             line-height: 1.6;
         }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
+
         h1, h2, h3 {
             color: var(--light-text);
             text-align: center;
@@ -34,26 +36,57 @@
 
         /* 1. SEÇÃO DE DESTAQUE (HERO) */
         .hero-section {
-            padding: 80px 20px;
+            position: relative;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.1), var(--dark-background)); /* Gradiente mais sutil */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 50px;
         }
-        .hero-section h1 {
-            color: var(--highlight-color);
-            font-size: 2.8em;
-            margin-bottom: 10px;
+
+        .hero-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            filter: brightness(0.85);
+            transition: filter 0.3s ease;
         }
-        .hero-section p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            color: var(--light-text);
+
+        .hero-section:hover img {
+            filter: brightness(1);
         }
-        
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.35);
+            padding: 25px 40px;
+            border-radius: 12px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5em;
+            margin: 0 0 10px;
+            color: #fff;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin: 0;
+            color: #f1f1f1;
+        }
+
         /* 2. SEÇÃO DE CONTEÚDO (CARDS) */
         .category {
             margin-top: 40px;
             margin-bottom: 20px;
         }
+
         .category h2 {
             border-bottom: 3px solid var(--highlight-color);
             padding-bottom: 10px;
@@ -61,12 +94,14 @@
             text-align: left;
             color: var(--light-text);
         }
+
         .card-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             justify-content: center;
         }
+
         .card {
             background-color: var(--card-background);
             border-radius: 8px;
@@ -76,31 +111,35 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
+
         .card-icon {
             font-size: 3em;
             color: var(--highlight-color);
             margin-bottom: 10px;
         }
+
         .card-title {
             font-weight: bold;
             font-size: 1.1em;
             margin: 0;
             color: var(--light-text);
         }
+
         .card p {
-            color: #666; /* Texto secundário mais suave */
+            color: #666;
         }
-        
-        /* 3. SEÇÃO DE PLANOS - ESTILO DA IMAGEM */
+
+        /* 3. SEÇÃO DE PLANOS */
         .plans-container {
             max-width: 600px;
             margin: 60px auto;
             padding: 20px;
-            background-color: #F8F8F8; /* Fundo levemente mais claro que o card */
+            background-color: #F8F8F8;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
@@ -115,7 +154,7 @@
             display: flex;
             align-items: center;
             padding: 15px 0;
-            border-bottom: 1px solid #E0E0E0; /* Linha de separação discreta */
+            border-bottom: 1px solid #E0E0E0;
         }
 
         .plan-item:last-child {
@@ -126,7 +165,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 2px solid #3483FA; 
+            border: 2px solid #3483FA;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -135,7 +174,7 @@
             color: #3483FA;
             margin-right: 15px;
             flex-shrink: 0;
-            background-color: #fff; /* Fundo branco para o ícone */
+            background-color: #fff;
         }
 
         .plan-details {
@@ -151,13 +190,12 @@
 
         .plan-price {
             font-size: 1.1em;
-            color: #666; /* Cor escura para o preço */
+            color: #666;
             margin: 5px 0 0;
         }
 
         .plan-tag {
             font-size: 0.75em;
-            font-weight: normal;
             padding: 2px 8px;
             border-radius: 3px;
             background-color: #3483FA1A;
@@ -170,7 +208,6 @@
             flex-shrink: 0;
         }
 
-        /* Estilos do Botão de Assinatura (Mercado Pago) */
         .blue-button {
             background-color: #3483FA;
             color: white;
@@ -183,6 +220,7 @@
             transition: background-color 0.3s;
             font-family: Arial, sans-serif;
         }
+
         .blue-button:hover {
             background-color: #2a68c8;
         }
@@ -195,8 +233,8 @@
             color: #666;
             background-color: #F0F0F0;
         }
-        
-        /* ESTILO PARA BOTÃO FLUTUANTE DO WHATSAPP */
+
+        /* Botão WhatsApp */
         .whatsapp-float {
             position: fixed; 
             width: 60px;
@@ -223,15 +261,14 @@
 <body>
 
     <div class="container">
+        <!-- HERO SECTION COM IMAGEM -->
         <div class="hero-section">
-            <h1>TV PREMIUM: +100.000 CONTEÚDOS</h1>
-            <p>Eleito o melhor serviço de streaming do Brasil. Canais Ao Vivo, Séries e Filmes em qualidade Ultra HD. **Sem fidelidade!**</p>
+            <img src="banner.png" alt="Banner StreamTV - Assista Tudo Onde Quiser">
         </div>
 
         <section class="category">
             <h2>O Que Você Vai Assinar:</h2>
             <div class="card-list">
-                
                 <div class="card"><span class="card-icon">📺</span><h3 class="card-title">Canais Ao Vivo</h3><p>Milhares de canais, incluindo esportes, notícias e entretenimento.</p></div>
                 <div class="card"><span class="card-icon">🍿</span><h3 class="card-title">Séries e Lançamentos</h3><p>Catálogo atualizado.</p></div>
                 <div class="card"><span class="card-icon">📽️</span><h3 class="card-title">Filmes</h3><p>Suporte à qualidade máxima para o melhor cinema em casa.</p></div>
@@ -243,60 +280,63 @@
             <h2>Escolha Seu Plano e Comece a Assistir Agora</h2>
             
             <div class="plan-item">
-                <div class="plan-icon ps">PS</div>
+                <div class="plan-icon">PS</div>
                 <div class="plan-details">
-                    <h3 class="plan-title">Plano Semestral <span class="plan-tag semestral">Semestral</span></h3>
+                    <h3 class="plan-title">Plano Semestral <span class="plan-tag">Semestral</span></h3>
                     <p class="plan-price">R$ 124,90</p>
                 </div>
                 <div class="plan-action">
-                    <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c93808486c739bc0186c74384260003" name="MP-payButton" class="blue-button">Assinar</a>
+                    <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c93808486c739bc0186c74384260003" class="blue-button">Assinar</a>
                 </div>
             </div>
 
             <div class="plan-item">
-                <div class="plan-icon pt">PT</div>
+                <div class="plan-icon">PT</div>
                 <div class="plan-details">
-                    <h3 class="plan-title">Plano Trimestral <span class="plan-tag trimestral">Trimestral</span></h3>
+                    <h3 class="plan-title">Plano Trimestral <span class="plan-tag">Trimestral</span></h3>
                     <p class="plan-price">R$ 69,90</p>
                 </div>
                 <div class="plan-action">
-                    <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=4a64d692ed4f45d088d5e6f0bcd53a82" name="MP-payButton" class="blue-button">Assinar</a>
+                    <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=4a64d692ed4f45d088d5e6f0bcd53a82" class="blue-button">Assinar</a>
                 </div>
             </div>
 
             <div class="plan-item">
-                <div class="plan-icon pm">PM</div>
+                <div class="plan-icon">PM</div>
                 <div class="plan-details">
-                    <h3 class="plan-title">Plano Mensal <span class="plan-tag mensal">Mensal</span></h3>
+                    <h3 class="plan-title">Plano Mensal <span class="plan-tag">Mensal</span></h3>
                     <p class="plan-price">R$ 25,00</p>
                 </div>
                 <div class="plan-action">
-                    <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c93808486c739bc0186c74384260003" name="MP-payButton" class="blue-button">Assinar</a>
+                    <a href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c93808486c739bc0186c74384260003" class="blue-button">Assinar</a>
                 </div>
             </div>
         </div>
-        
-    </div> <footer>&copy; 2025 Seu Nome/Empresa. Conteúdo digital sob demanda.</footer>
-    
+    </div>
+
+    <footer>&copy; 2025 StreamTV. Conteúdo digital sob demanda.</footer>
+
+    <!-- Script Mercado Pago -->
     <script type="text/javascript">
         (function() {
            function $MPC_load() {
-              window.$MPC_loaded !== true && (function() {
-              var s = document.createElement("script");
-              s.type = "text/javascript";
-              s.async = true;
-              s.src = document.location.protocol + "//secure.mlstatic.com/mptools/render.js";
-              var x = document.getElementsByTagName('script')[0];
-              x.parentNode.insertBefore(s, x);
-              window.$MPC_loaded = true;
-           })();
-        }
-        window.$MPC_loaded !== true ? (window.attachEvent ? window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;
+              if (!window.$MPC_loaded) {
+                 var s = document.createElement("script");
+                 s.type = "text/javascript";
+                 s.async = true;
+                 s.src = document.location.protocol + "//secure.mlstatic.com/mptools/render.js";
+                 var x = document.getElementsByTagName('script')[0];
+                 x.parentNode.insertBefore(s, x);
+                 window.$MPC_loaded = true;
+              }
+           }
+           window.attachEvent ? window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false);
         })();
     </script>
 
-<a href="https://wa.me/5511969784382?text=Preciso%20de%20ajuda%20para%20finalizar%20a%20assinatura." target="_blank" class="whatsapp-float">
-    💬
-</a>
+    <!-- Botão WhatsApp -->
+    <a href="https://wa.me/5511969784382?text=Preciso%20de%20ajuda%20para%20finalizar%20a%20assinatura." target="_blank" class="whatsapp-float">
+        💬
+    </a>
 </body>
 </html>
